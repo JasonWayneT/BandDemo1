@@ -1,0 +1,785 @@
+/*/////////////////////////////////////////////////////
+Table of Contents
+/*/
+/*
+--Variable
+--base styles
+--Components
+--media queries
+*/
+/*/////////////////////////////////////////////////////
+Variables
+/*/
+/*/////////////////////////////////////////////////////
+Mixins
+/*/
+/*/////////////////////////////////////////////////////
+Base Styles
+/*/
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a > h2 {
+  color: white;
+}
+
+form {
+  padding-top: 3rem;
+}
+
+h1 {
+  font-size: 256%;
+  margin: 0;
+}
+
+h2 {
+  font-size: 161%;
+}
+
+h3 {
+  margin: 0px;
+}
+
+p {
+  font-size: 100%;
+}
+
+body,
+html {
+  background-color: #231F23;
+  position: relative;
+}
+
+/*/////////////////////////////////////////////////////
+Utilities 
+/*/
+.flexrow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flexCenter {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.margin-btn {
+  margin-bottom: 3rem;
+}
+
+/*/////////////////////////////////////////////////////
+Components 
+/*/
+.button {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-family: "Limelight", cursive;
+  border: solid black 1px;
+  padding: 1rem;
+  background-color: #fff;
+  font: black;
+  width: auto;
+  max-width: 10rem;
+  text-align: center;
+  cursor: pointer;
+}
+.button:hover {
+  transition-duration: 250ms;
+  background: black;
+  color: white;
+  font-weight: 600;
+}
+
+.darkBtn {
+  background: black;
+  color: white;
+  box-sizing: border-box;
+  height: 40px;
+  width: 100px;
+  display: table;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.55);
+  transition: background 0.5s;
+  text-align: center;
+  vertical-align: center;
+  line-height: 40px;
+  margin: 0.5rem 0.5rem;
+  cursor: pointer;
+}
+.darkBtn:hover {
+  transition-duration: 250ms;
+  background: white;
+  color: black;
+  font-weight: 600;
+}
+
+.lightBtn {
+  background: white;
+  color: black;
+  box-sizing: border-box;
+  height: 40px;
+  width: 100px;
+  display: table;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.55);
+  transition: background 0.5s;
+  text-align: center;
+  vertical-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  margin: 0.5rem 0.5rem;
+}
+.lightBtn:hover {
+  transition-duration: 250ms;
+  background: black;
+  color: white;
+  font-weight: 600;
+}
+
+/*/////////////////////////////////////////////////////
+Hero
+/*/
+.hero {
+  position: relative;
+  background-attachment: fixed;
+  overflow: hidden;
+  background: url(../Assets/hero500.jpg);
+  background-repeat: no-repeat;
+  background-size: auto 455px;
+  background-position: 50% -100px;
+  height: 33vh;
+}
+
+.nav {
+  position: relative;
+  z-index: 2;
+  height: 8vh;
+  background-color: rgba(35, 31, 32, 0.9);
+}
+.nav__hamburger {
+  padding-left: 50px;
+  display: inline-block;
+  cursor: pointer;
+}
+.nav__bar1, .nav__bar2, .nav__bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+.nav__menu {
+  display: none;
+  position: absolute;
+  overflow: hidden;
+  padding-top: 10rem;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  background-color: rgba(35, 31, 32, 0.9);
+  text-align: center;
+  color: white;
+  font-family: "Limelight", cursive;
+}
+.nav__menu ul li {
+  color: white;
+  font-size: 1.5rem;
+  list-style-type: none;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  padding: 40px 0px;
+}
+.nav__menu ul li:hover {
+  transition-duration: 200ms;
+  transform: scale(1.05);
+}
+
+.change .nav__bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .nav__bar2 {
+  opacity: 0;
+}
+
+.change .nav__bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.nav__artistName {
+  height: 80;
+  font-family: "Merriweather", serif;
+  color: white;
+}
+
+.sticky {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  margin: 0;
+  z-index: 100;
+  border-top: 0;
+  height: 5vh;
+}
+.sticky--menu {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  border-top: 0;
+  z-index: 99;
+}
+
+/*/////////////////////////////////////////////////////
+Music
+/*/
+.hidden {
+  display: none;
+  font-family: "Merriweather", serif;
+}
+
+.audioWrapper {
+  width: 300px;
+  box-shadow: -3px 0px 1px black, 3px 0px 1px black;
+}
+
+.music {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem auto;
+  background: #231F23;
+}
+.music__heading {
+  padding-top: 3rem;
+  color: white;
+  font-family: "Limelight", cursive;
+  text-shadow: 2px 4px 2px #000, -1px -1px 1px #000, 1px -1px 1px #000, -1px 1px 1px #000, 1px 1px 1px #000;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.music__heading--highlight {
+  font-family: "Limelight", cursive;
+  color: #231F23;
+  text-shadow: 1px 1px 0 #FF011F, -1px -1px 0 #FF011F, 1px -1px 0 #FF011F, -1px 1px 0 #FF011F, 1px 1px 0 #FF011F;
+}
+.music__albumnCover {
+  background-image: url(../Assets/albumCover.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 300px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 300px;
+  height: 300px;
+  margin: 0px;
+  box-shadow: -3px 4px 2px black, 3px 0px 2px black;
+}
+.music__albumnCover::before {
+  content: "";
+  width: 100%;
+  height: 15px;
+  border-bottom: 1px black solid;
+  background-color: #151515;
+}
+.music__scrollBox {
+  display: block;
+  overflow: auto;
+  width: 300px;
+  max-width: 400px;
+  height: 275px;
+  background-color: #151515;
+  box-shadow: -3px 4px 2px black, 3px 0px 2px black;
+}
+.music__scrollBoxItems {
+  width: 100%;
+  height: 68px;
+  border-bottom: solid #444444 1px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.music__scrollBoxBtn {
+  border: solid 1px grey;
+  height: 35.7px;
+  width: 7rem;
+  text-transform: uppercase;
+  text-align: center;
+  color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+.music__scrollBoxBtn:hover {
+  color: white;
+  border: solid 1px #fff;
+}
+.music__scrollBoxImg {
+  height: 50%;
+  width: 7.5rem;
+}
+
+/*/////////////////////////////////////////////////////
+Tour
+/*/
+.tour {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: auto;
+  font-family: "Limelight", cursive;
+  background: white;
+  padding: 4rem 1rem;
+}
+.tour__heading {
+  position: relative;
+  bottom: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: black;
+  height: 2rem;
+  padding: 3rem 0;
+}
+.tour__drkHeading {
+  background: black;
+  color: white;
+  height: 3rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+.tour__list {
+  max-width: 75rem;
+}
+.tour__listItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: auto;
+  min-height: 4rem;
+  border-bottom: solid 1px #444444;
+  color: black;
+  margin: 0px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.tour__listItem:hover {
+  transition-duration: 500ms;
+  background: black;
+  color: white;
+}
+.tour__listItemPrimary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: auto;
+  min-height: 4rem;
+  border-bottom: solid 1px #444444;
+  color: black;
+  margin: 0px;
+}
+.tour__gig {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.tour__gigDate {
+  padding-right: 20px;
+  padding-bottom: 10px;
+}
+.tour__gigVenue {
+  padding-right: 20px;
+  padding-bottom: 10px;
+  font-family: "Merriweather", serif;
+}
+.tour__gigLocation {
+  font-family: "Merriweather", serif;
+}
+.tour__gigButtons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/*/////////////////////////////////////////////////////
+Video
+/*/
+.video__heading {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 3rem;
+  font-family: "Limelight", cursive;
+}
+.video__headingPlain {
+  color: white;
+}
+.video__headingOutline {
+  display: flex;
+  align-items: center;
+  background: white;
+  color: #231F23;
+  height: 3rem;
+  padding: 0.5rem 0.5rem;
+}
+.video__vidwrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 35px;
+  height: 0;
+  overflow: hidden;
+  box-shadow: -3px 5px 5px black, 3px 0px 5px black;
+}
+.video__vidwrapperiframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*/////////////////////////////////////////////////////
+Instagram
+/*/
+.instagram {
+  height: auto;
+  background: #151515;
+}
+.instagram__heading {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 2rem;
+  padding: 3rem 0;
+  font-family: "Limelight", cursive;
+}
+.instagram__headingPlain {
+  color: white;
+}
+.instagram__headingStencil {
+  display: flex;
+  align-items: center;
+  background: white;
+  color: #231F23;
+  height: 3rem;
+  padding: 0.5rem 0.5rem;
+}
+.instagram__posts {
+  margin-top: 6rem;
+}
+.instagram__mediaWrapper {
+  max-width: 400px;
+  position: relative;
+}
+
+/*/////////////////////////////////////////////////////
+Contact Form
+/*/
+.form {
+  background: #151515;
+  padding: 1rem;
+  height: auto;
+  width: 100%;
+  color: white;
+  transition-duration: 250ms;
+}
+.form__heading {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 2rem;
+  padding: 3rem 0.5rem;
+  font-family: "Limelight", cursive;
+}
+.form__headingStencil {
+  background: #fff;
+  color: black;
+  height: 3rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  padding-bottom: 3rem;
+}
+
+input,
+textarea {
+  background-color: #151515;
+  border: solid white 2px;
+  margin: 10px;
+  height: 35px;
+  width: 97%;
+  font-size: 0.8rem;
+  font-family: "Merriweather", serif;
+  letter-spacing: 1px;
+  box-shadow: -3px 5px 5px black, 3px 0px 5px black;
+}
+input:focus,
+textarea:focus {
+  background: #fff;
+  color: black;
+}
+
+input[type=submit] {
+  color: #fff;
+  width: 75px;
+}
+input[type=submit]:hover {
+  background: #fff;
+  color: black;
+  transition-duration: 250ms;
+  transform: scale(1.05);
+}
+
+textarea {
+  height: 10rem;
+}
+
+/*/////////////////////////////////////////////////////
+Products 
+/*/
+.merch {
+  background: #fff;
+  height: auto;
+  margin-top: 5rem;
+}
+.merch__heading {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 2rem;
+  padding: 3rem 0.5rem;
+  font-family: "Limelight", cursive;
+}
+.merch__headingStencil {
+  background: black;
+  color: white;
+  height: 3rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+.merch__product {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: auto;
+}
+.merch__product--1 {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  max-width: 250px;
+  margin: 3rem 2rem;
+}
+.merch__product--2 {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  max-width: 250px;
+  margin: 3rem 2rem;
+}
+.merch__product--3 {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  max-width: 250px;
+  margin: 3rem 2rem;
+}
+
+/*/////////////////////////////////////////////////////
+Footer
+/*/
+.footer {
+  height: 15vh;
+  background-color: #151515;
+  color: #fff;
+  font-family: "Merriweather", serif;
+}
+.footer__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/*/////////////////////////////////////////////////////
+Media Queries
+/*/
+@media (max-width: 576px) {
+  .merch__product--1 {
+    padding-top: 3rem;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: row;
+    height: 5rem;
+  }
+  .nav h1 {
+    transform: scale(0.5);
+  }
+
+  .music__heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tour__listItem {
+    display: flex;
+    flex-direction: column;
+  }
+  .tour__gig {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .tour__gigDate {
+    padding: 0;
+    text-align: center;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .tour__gigVenue {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    padding-top: 0.5rem;
+  }
+  .tour__gigButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 1rem;
+  }
+  .tour__gigRsvp, .tour__gigTickets {
+    align-self: center;
+    padding-top: 0.5rem;
+  }
+
+  input[type=name] {
+    margin-top: 3rem;
+  }
+}
+@media (min-width: 500px) {
+  .music__heading {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .tour__gig {
+    flex-direction: column;
+  }
+
+  .form {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    max-width: 600px;
+  }
+}
+@media (min-width: 700px) {
+  .hidden {
+    display: block;
+    text-align: end;
+  }
+
+  .music {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 3rem auto;
+    background: #231F23;
+  }
+  .music__heading {
+    text-align: end;
+  }
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    background: url(../Assets/hero700.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 650px;
+    background-position: 50% -150px;
+    background-attachment: fixed;
+    transition-duration: 500ms;
+    height: 45vh;
+  }
+}
+@media (min-width: 992px) {
+  .hero {
+    position: relative;
+    height: 60vh;
+    overflow: hidden;
+    background: url(../Assets/hero2000.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 900px;
+    background-position: 50% -270px;
+    background-attachment: fixed;
+  }
+}
+@media (min-width: 1200px) {
+  .hero {
+    position: relative;
+    height: 90vh;
+    overflow: hidden;
+    background: url(../Assets/hero3000.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 1275px;
+    background-position: 50% -350px;
+    background-attachment: fixed;
+  }
+
+  .tour__gig {
+    flex-direction: row;
+  }
+}
+/*///////////////////////////////////*/
+/*Layout Debugging*/
+/*///////////////////////////////////*/
+
+/*# sourceMappingURL=main.css.map */
